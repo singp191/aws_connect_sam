@@ -1,10 +1,17 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
+Globals:
+  Function:
+    Tags:
+      PrimaryOwner: "christopher.wheaton@pfizer.com"
+      SecondaryOwner: "dimosthenis.chatzopoulos@pfizer.com"
+      CostCenterID: "2320613"
 Resources:
-  CreateThumbnail:
+  CUSPFEsample:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: lambda_function.lambda_handler
+      CodeUri: hello_world/
+      Handler: app.lambda_handler
       Runtime: python3.9
       Timeout: 10
       Policies:
@@ -13,10 +20,9 @@ Resources:
             - Effect: Allow
               Action: 
                 - 's3:GetObject'
-                - 's3.PutObject'
               Resource: 'arn:aws:s3::*'
       Events:
-        CreateThumbnailEvent:
+        CUSPFEsampleEvent:
           Type: S3
           Properties:
             Bucket: !Ref SrcBucket
