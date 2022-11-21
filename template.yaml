@@ -13,6 +13,7 @@ Resources:
       CodeUri: hello_world/
       Handler: app.lambda_handler
       Runtime: python3.9
+      Role: arn:aws:iam::638200722556:role/CUSPFE-ConnectMetricsToSnowflakeLambdaRole
       Timeout: 10
       Policies:
         - Version: '2012-10-17'
