@@ -1,12 +1,27 @@
 version = 0.1
 [default]
+tags = "CostCenterID=\"2320613\" SecondaryOwner=\"dimosthenis.chatzopoulos@pfizer.com\" PrimaryOwner=\"christopher.wheaton@pfizer.com\""
+
 [default.deploy]
 [default.deploy.parameters]
 stack_name = "singp191"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-615syr5c19ow"
-s3_prefix = "singp191"
+s3_bucket = "sfa-dev-testing-manish"
 region = "us-east-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
 image_repositories = []
-disable_rollback = true
+disable_rollback = false
+profile = "saml"
+tags = "CostCenterID=\"2320613\" SecondaryOwner=\"dimosthenis.chatzopoulos@pfizer.com\" PrimaryOwner=\"christopher.wheaton@pfizer.com\""
+
+[rapid]
+[rapid.deploy]
+[rapid.deploy.parameters]
+stack_name = "singp191"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-11y5n2de4n2wg"
+s3_prefix = "singp191"
+region = "us-east-1"
+profile = "saml"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = []

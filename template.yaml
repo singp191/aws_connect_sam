@@ -32,7 +32,9 @@ Resources:
   SrcBucket:
     Type: AWS::S3::Bucket
     Properties:
-      Tags: 
-        PrimaryOwner: "christopher.wheaton@pfizer.com"
-        SecondaryOwner: "dimosthenis.chatzopoulos@pfizer.com"
-        CostCenterID: "2320613"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'aws:kms'
+              KMSMasterKeyID: KMS-KEY-ARN
+    DeletionPolicy: Delete
